@@ -6,6 +6,8 @@ import * as process from "process";
 import {User} from "./users/user.model";
 import {AppController} from "./app.controller";
 import {AppService} from "./app.service";
+import { PostsModule } from './posts/posts.module';
+import {Post} from "./posts/post.model";
 
 @Module({
   imports: [
@@ -19,10 +21,11 @@ import {AppService} from "./app.service";
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User],
+      models: [User, Post],
       autoLoadModels: true,
       }),
       UsersModule,
+      PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
