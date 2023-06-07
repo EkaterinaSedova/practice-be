@@ -28,6 +28,7 @@
     "@nestjs/sequelize": "^9.0.2",
     "@nestjs/swagger": "^6.3.0",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.1.4",
     "pg": "^8.11.0",
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.1.13",

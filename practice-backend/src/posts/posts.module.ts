@@ -6,12 +6,15 @@ import {Post} from "./post.model";
 import {User} from "../users/user.model";
 import {Like} from "../likes/like.model";
 import {Comment} from "../comments/comment.model";
+import {JwtService} from "@nestjs/jwt";
+import {AuthModule} from "../auth/auth.module";
 
 @Module({
-  providers: [PostsService],
+  providers: [PostsService, JwtService],
   controllers: [PostsController],
   imports: [
-    SequelizeModule.forFeature([User, Post, Like, Comment])
+    SequelizeModule.forFeature([User, Post, Like, Comment]),
+      AuthModule,
   ]
 })
 export class PostsModule {}

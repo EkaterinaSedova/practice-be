@@ -15,34 +15,6 @@
 			"response": []
 		},
 		{
-			"name": "create user",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"123@456.com\",\r\n    \"password\": \"zxc\",\r\n    \"firstname\": \"hello\",\r\n    \"lastname\": \"world\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:9090/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9090",
-					"path": [
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "create post",
 			"request": {
 				"method": "POST",
@@ -67,6 +39,22 @@
 						"posts"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "registration",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
