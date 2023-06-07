@@ -10,7 +10,7 @@ export class AuthController {
 
     @Post('/login')
     login(@Body() userDto: LoginUserDto) {
-
+        return this.authService.login(userDto)
     }
 
     @Post('/registration')
