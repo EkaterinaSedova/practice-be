@@ -14,6 +14,7 @@ import { CommentsModule } from './comments/comments.module';
 import {Comment} from "./comments/comment.model";
 import {Like} from "./likes/like.model";
 import {Subscription} from "./subscriptions/subscription.model";
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import {Subscription} from "./subscriptions/subscription.model";
       SubscriptionsModule,
       LikesModule,
       CommentsModule,
+      AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

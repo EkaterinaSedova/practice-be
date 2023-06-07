@@ -13,6 +13,9 @@ import {Subscription} from "../subscriptions/subscription.model";
   providers: [UsersService],
   imports: [
       SequelizeModule.forFeature([User, Post, Like, Comment, Subscription])
-  ]
+  ],
+    exports: [
+        UsersService,
+    ]
 })
 export class UsersModule {}
