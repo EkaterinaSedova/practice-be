@@ -8,6 +8,12 @@ import {AppController} from "./app.controller";
 import {AppService} from "./app.service";
 import { PostsModule } from './posts/posts.module';
 import {Post} from "./posts/post.model";
+import { SubscriptionsModule } from './subscriptions/subscriptions.module';
+import { LikesModule } from './likes/likes.module';
+import { CommentsModule } from './comments/comments.module';
+import {Comment} from "./comments/comment.model";
+import {Like} from "./likes/like.model";
+import {Subscription} from "./subscriptions/subscription.model";
 
 @Module({
   imports: [
@@ -21,11 +27,14 @@ import {Post} from "./posts/post.model";
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Post],
+      models: [User, Post, Like, Comment, Subscription],
       autoLoadModels: true,
       }),
       UsersModule,
       PostsModule,
+      SubscriptionsModule,
+      LikesModule,
+      CommentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
