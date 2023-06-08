@@ -2,6 +2,9 @@ import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-t
 import {User} from "../users/user.model";
 import {Post} from "../posts/post.model";
 interface CommentCreationAttrs {
+    user_id: number;
+    post_id: number;
+    content: string;
 }
 
 @Table({tableName: 'comments', updatedAt: false})
