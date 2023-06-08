@@ -5,10 +5,11 @@ import {SequelizeModule} from "@nestjs/sequelize";
 import {User} from "../users/user.model";
 import {Post} from "../posts/post.model";
 import {Comment} from "./comment.model";
+import {JwtService} from "@nestjs/jwt";
 
 @Module({
   controllers: [CommentsController],
-  providers: [CommentsService],
+  providers: [CommentsService, JwtService],
   imports: [
     SequelizeModule.forFeature([User, Post, Comment])
   ]
