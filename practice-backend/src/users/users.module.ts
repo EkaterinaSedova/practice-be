@@ -7,10 +7,13 @@ import {Post} from "../posts/post.model";
 import {Like} from "../likes/like.model";
 import {Comment} from "../comments/comment.model";
 import {Subscription} from "../subscriptions/subscription.model";
+import {FilesService} from "../files/files.service";
+import {JwtAuthGuard} from "../auth/jwt-auth.guard";
+import {JwtService} from "@nestjs/jwt";
 
 @Module({
   controllers: [UsersController],
-  providers: [UsersService],
+  providers: [UsersService, FilesService, JwtService],
   imports: [
       SequelizeModule.forFeature([User, Post, Like, Comment, Subscription])
   ],

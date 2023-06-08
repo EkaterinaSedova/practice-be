@@ -332,6 +332,56 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "Lexa",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Bloxa",
+							"type": "text"
+						},
+						{
+							"key": "sex",
+							"value": "male",
+							"type": "text"
+						},
+						{
+							"key": "profile_img",
+							"type": "file",
+							"src": "/C:/Users/User/Desktop/скитеры/16ygwmqQ8_E.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9090/users/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"users",
+						"update"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
