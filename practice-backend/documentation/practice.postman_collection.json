@@ -132,6 +132,40 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "delete post",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg2MTQwODIyLCJleHAiOjE2ODcyMjA4MjJ9.xTulfa2X04n4aF3SDTJQ7fBjij9krENRj0DCSlgGS_4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"post_id\": \"24\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
