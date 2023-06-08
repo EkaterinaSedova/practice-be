@@ -6,6 +6,7 @@ import {Comment} from "../comments/comment.model";
 interface PostCreationAttrs {
     content: string;
     user_id: number;
+    images: string[];
 }
 
 @Table({tableName: 'posts' })
@@ -17,7 +18,7 @@ export class Post extends Model<Post, PostCreationAttrs> {
     content: string;
 
     @Column({type: DataType.ARRAY(DataType.STRING), allowNull: true})
-    images: string;
+    images: string[];
 
     @ForeignKey(() => User)
     @Column({type: DataType.INTEGER})

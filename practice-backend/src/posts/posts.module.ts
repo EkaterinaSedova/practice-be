@@ -8,6 +8,7 @@ import {Like} from "../likes/like.model";
 import {Comment} from "../comments/comment.model";
 import {JwtService} from "@nestjs/jwt";
 import {AuthModule} from "../auth/auth.module";
+import {FilesModule} from "../files/files.module";
 
 @Module({
   providers: [PostsService, JwtService],
@@ -15,6 +16,7 @@ import {AuthModule} from "../auth/auth.module";
   imports: [
     SequelizeModule.forFeature([User, Post, Like, Comment]),
       AuthModule,
+      FilesModule
   ]
 })
 export class PostsModule {}
