@@ -2,6 +2,8 @@ import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
 import {InjectModel} from "@nestjs/sequelize";
 import {Comment} from "../comments/comment.model";
 import {CreateCommentDto} from "./dto/create-comment.dto";
+import {CreatePostDto} from "../posts/dto/create-post.dto";
+import {UpdateCommentDto} from "./dto/update-comment.dto";
 
 @Injectable()
 export class CommentsService {
@@ -19,6 +21,12 @@ export class CommentsService {
         return id;
     }
 
+    async updateComment(dto: UpdateCommentDto) {
+        const content = dto.content;
+        const id = dto.id;
+        const comment = await this.commentRepository.update({content: content}, {where: {id}})
+        return comment;
+    }
     async getCommentsByPost(post_id) {
         const comments = await this.commentRepository.findAll({where: {post_id}})
         return comments;

@@ -3,6 +3,7 @@ import {CreateCommentDto} from "./dto/create-comment.dto";
 import {CommentsService} from "./comments.service";
 import {JwtAuthGuard} from "../auth/jwt-auth.guard";
 import {DeleteCommentDto} from "./dto/delete-comment.dto";
+import {UpdateCommentDto} from "./dto/update-comment.dto";
 
 @Controller('/comments')
 export class CommentsController {
@@ -27,4 +28,9 @@ export class CommentsController {
         return this.commentService.getCommentsByPost(commentDto.post_id);
     }
 
+    @UseGuards(JwtAuthGuard)
+    @Post('/update')
+    updateComment (@Body() dto: UpdateCommentDto) {
+        return this.commentService.updateComment(dto);
+    }
 }

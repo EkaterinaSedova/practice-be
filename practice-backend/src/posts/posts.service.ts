@@ -29,4 +29,9 @@ export class PostsService {
         return id;
     }
 
+    async getPostsByUser(user_id) {
+        const posts = await this.postRepository.findAll({where: {user_id}})
+        return posts;
+    }
+
 }

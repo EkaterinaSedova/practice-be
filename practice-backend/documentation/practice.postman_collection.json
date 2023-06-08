@@ -41,7 +41,7 @@
 					"formdata": [
 						{
 							"key": "content",
-							"value": "my friends r so cute ^^",
+							"value": "babyfox is insane",
 							"type": "text"
 						},
 						{
@@ -52,11 +52,7 @@
 						{
 							"key": "images",
 							"type": "file",
-							"src": [
-								"/C:/Users/User/Desktop/скитеры/1509471947_Frog sad meme.png",
-								"/C:/Users/User/Desktop/скитеры/clown.png",
-								"/C:/Users/User/Desktop/скитеры/peeposhy.png"
-							]
+							"src": "/C:/Users/User/Desktop/скитеры/2307-2048x2048.png"
 						}
 					]
 				},
@@ -266,6 +262,72 @@
 					"port": "9090",
 					"path": [
 						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get posts by user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update comment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg2MTQwODIyLCJleHAiOjE2ODcyMjA4MjJ9.xTulfa2X04n4aF3SDTJQ7fBjij9krENRj0DCSlgGS_4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"6\",\r\n    \"content\": \"aboba\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/comments/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"comments",
+						"update"
 					]
 				}
 			},
