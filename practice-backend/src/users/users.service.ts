@@ -44,6 +44,6 @@ export class UsersService {
             }, {
                 where: {id}
             })
-        return user;
+        return {message: "Данные о пользователе обновлены."};
     }
 }

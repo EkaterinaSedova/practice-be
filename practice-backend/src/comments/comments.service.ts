@@ -18,14 +18,14 @@ export class CommentsService {
     async deleteComment(id) {
         const comment = await this.commentRepository.destroy({where: {id}})
         if(!comment) throw new HttpException("Комментарий не найден", HttpStatus.BAD_REQUEST)
-        return id;
+        return {message: "Комментарий удалён"};
     }
 
     async updateComment(dto: UpdateCommentDto) {
         const content = dto.content;
         const id = dto.id;
         const comment = await this.commentRepository.update({content: content}, {where: {id}})
-        return comment;
+        return {message: "Комментарий обновлён"};
     }
     async getCommentsByPost(post_id) {
         const comments = await this.commentRepository.findAll({where: {post_id}})
