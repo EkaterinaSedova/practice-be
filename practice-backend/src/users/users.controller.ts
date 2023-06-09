@@ -1,8 +1,9 @@
-import {Body, Controller, Get, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Get, Post, UploadedFile, UseInterceptors, UsePipes} from '@nestjs/common';
 import {CreateUserDto} from "./dto/create-user.dto";
 import {UsersService} from "./users.service";
 import {UpdateUserDto} from "./dto/update-user.dto";
 import {FileInterceptor, FilesInterceptor} from "@nestjs/platform-express";
+import {ValidationPipe} from "../pipes/validation.pipe";
 
 @Controller('/users')
 export class UsersController {
