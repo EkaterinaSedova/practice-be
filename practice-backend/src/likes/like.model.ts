@@ -3,6 +3,8 @@ import {User} from "../users/user.model";
 import {Post} from "../posts/post.model";
 
 interface LikeCreationAttrs {
+    user_id: number;
+    post_id: number;
 }
 
 @Table({tableName: 'likes', createdAt: false, updatedAt: false})
