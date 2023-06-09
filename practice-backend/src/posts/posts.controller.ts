@@ -14,6 +14,7 @@ import {PostsService} from "./posts.service";
 import {JwtAuthGuard} from "../auth/jwt-auth.guard";
 import {FilesInterceptor} from "@nestjs/platform-express";
 import {DeletePostDto} from "./dto/delete-post.dto";
+import {UpdatePostDto} from "./dto/update-post.dto";
 
 @Controller('/posts')
 export class PostsController {
@@ -37,4 +38,13 @@ export class PostsController {
     deletePost(@Body() postDto: DeletePostDto) {
         return this.postService.deletePost(postDto.post_id);
     }
+
+    @UseGuards(JwtAuthGuard)
+    @UseInterceptors(FilesInterceptor('images'))
+    @Post('/update')
+    updatePost(@Body() dto: UpdatePostDto,
+               @UploadedFiles() images) {
+        return this.postService.updatePost(dto, images)
+    }
+
 }

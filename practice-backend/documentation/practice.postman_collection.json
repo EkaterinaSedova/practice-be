@@ -163,18 +163,18 @@
 							"formdata": [
 								{
 									"key": "content",
-									"value": "babyfox is insane",
+									"value": "завтра шашлычоооок",
 									"type": "text"
 								},
 								{
 									"key": "user_id",
-									"value": "2",
+									"value": "3",
 									"type": "text"
 								},
 								{
 									"key": "images",
 									"type": "file",
-									"src": "/C:/Users/User/Desktop/скитеры/2307-2048x2048.png"
+									"src": "/C:/Users/User/Desktop/скитеры/RCbdRtDkksE.jpg"
 								}
 							]
 						},
@@ -252,6 +252,52 @@
 							"port": "9090",
 							"path": [
 								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg2MTQwODIyLCJleHAiOjE2ODcyMjA4MjJ9.xTulfa2X04n4aF3SDTJQ7fBjij9krENRj0DCSlgGS_4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "35",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "na prirode pri pogode",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/User/Desktop/скитеры/16ygwmqQ8_E.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9090/posts/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"posts",
+								"update"
 							]
 						}
 					},

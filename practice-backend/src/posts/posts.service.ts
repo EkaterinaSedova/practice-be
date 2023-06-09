@@ -7,6 +7,7 @@ import {DeletePostDto} from "./dto/delete-post.dto";
 import {response} from "express";
 import {Like} from "../likes/like.model";
 import {Comment} from "../comments/comment.model";
+import {UpdatePostDto} from "./dto/update-post.dto";
 
 @Injectable()
 export class PostsService {
@@ -39,6 +40,27 @@ export class PostsService {
     async getPostsByUser(user_id) {
         const posts = await this.postRepository.findAll({where: {user_id}})
         return posts;
+    }
+
+    async updatePost(dto: UpdatePostDto, files: any[]) {
+        const id = dto.id;
+
+        let fileNames = [];
+        for(let i = 0; i < files.length; i++)
+        {
+            fileNames.push(await this.fileService.createImage(files[i]));
+        }
+
+        const candidate = await this.postRepository.findOne({where: {id}})
+
+        const content = dto.content || candidate.content;
+        const images = fileNames || candidate.images;
+
+        const post = await this.postRepository.update({
+            content: content,
+            images: images
+        }, {where: {id}})
+        return {message: "Пост обновлён"}
     }
 
 }
