@@ -2,6 +2,8 @@ import {BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table} from "se
 import {User} from "../users/user.model";
 
 interface SubscriptionCreationAttrs {
+    subscriber_id: number;
+    subscriber_to_id: number;
 }
 
 @Table({tableName: 'subscriptions', updatedAt: false})
