@@ -35,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"katena.sedova@gmail.com\",\r\n    \"password\": \"qwerty\",\r\n    \"firstname\": \"Katyona\",\r\n    \"lastname\": \"Siadova\"\r\n}",
+							"raw": "{\r\n    \"email\": \"123456@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"firstname\": \"imya\",\r\n    \"lastname\": \"familiya\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -64,7 +64,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"qwerty@uiopa.com\",\r\n    \"password\": \"123\"\r\n}",
+							"raw": "{\r\n    \"email\": \"katena.sedova@gmail.com\",\r\n    \"password\": \"qwerty\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -93,7 +93,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg2Mjk0OTY3LCJleHAiOjE2ODYzODEzNjd9.UwWIILZCbthrp17KvunNj2lDqRcomnoklFoq4fLw6xk",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4NjU1MzQ5NSwiZXhwIjoxNjg2NjM5ODk1fQ.5wER3lVRSjVvlVITr526rGMx30zONt8l5glOh4_F3BY",
 								"type": "text"
 							}
 						],
@@ -102,28 +102,28 @@
 							"formdata": [
 								{
 									"key": "id",
-									"value": "2",
+									"value": "13",
 									"type": "text"
 								},
 								{
 									"key": "firstname",
-									"value": "Lexa",
+									"value": "",
 									"type": "text"
 								},
 								{
 									"key": "lastname",
-									"value": "Bloxa",
+									"value": "",
 									"type": "text"
 								},
 								{
 									"key": "sex",
-									"value": "male",
+									"value": "female",
 									"type": "text"
 								},
 								{
 									"key": "profile_img",
 									"type": "file",
-									"src": "/C:/Users/User/Desktop/скитеры/1509471947_Frog sad meme.png"
+									"src": "/C:/Users/User/Desktop/скитеры/1-ZDDrnuFq0.jpg"
 								}
 							]
 						},
@@ -139,6 +139,14 @@
 								"update"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": []
 					},
 					"response": []
 				}
@@ -284,7 +292,11 @@
 								{
 									"key": "images",
 									"type": "file",
-									"src": "/C:/Users/User/Desktop/скитеры/16ygwmqQ8_E.jpg"
+									"src": [
+										"/C:/Users/User/Desktop/скитеры/14912c3afd1bf3b78cb84b4799c75033.jpg",
+										"/C:/Users/User/Desktop/скитеры/1509471947_Frog sad meme.png",
+										"/C:/Users/User/Desktop/скитеры/clown.png"
+									]
 								}
 							]
 						},

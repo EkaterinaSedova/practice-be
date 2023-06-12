@@ -8,7 +8,6 @@ import {Like} from "../likes/like.model";
 import {Comment} from "../comments/comment.model";
 import {Subscription} from "../subscriptions/subscription.model";
 import {FilesService} from "../files/files.service";
-import {JwtAuthGuard} from "../auth/jwt-auth.guard";
 import {JwtService} from "@nestjs/jwt";
 
 @Module({

@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post, UploadedFile, UseGuards, UseInterceptors, UsePipes} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Post, UploadedFile, UseGuards, UseInterceptors, UsePipes} from '@nestjs/common';
 import {CreateUserDto} from "./dto/create-user.dto";
 import {UsersService} from "./users.service";
 import {UpdateUserDto} from "./dto/update-user.dto";
@@ -11,15 +11,20 @@ export class UsersController {
 
     constructor(private usersService: UsersService) {
     }
+
+    //создание пользователя
     @Post()
     create(@Body() userDto: CreateUserDto) {
         return this.usersService.createUser(userDto);
     }
 
+    //получение массива всех пользователей
     @Get()
     getAll() {
         return this.usersService.getAllUsers();
     }
+
+    //обновление данных о пользователе
     @UseInterceptors(FileInterceptor('profile_img'))
     @UseGuards(JwtAuthGuard)
     @UsePipes(ValidationPipe)
@@ -27,5 +32,11 @@ export class UsersController {
     updateUser(@Body() userDto: UpdateUserDto,
                @UploadedFile() image) {
         return this.usersService.updateUser(userDto, image);
+    }
+
+    //удаление пользователя
+    @Delete()
+    deleteUser(@Body() dto: UpdateUserDto) {
+        return this.usersService.deleteUser(dto.id);
     }
 }

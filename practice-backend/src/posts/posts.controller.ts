@@ -21,10 +21,14 @@ export class PostsController {
 
     constructor(private postService: PostsService) {}
 
+
+    //получение всех постов пользователя
     @Get()
     getPostsByUser(@Body() postDto: CreatePostDto) {
         return this.postService.getPostsByUser(postDto.user_id);
     }
+
+    //создание поста
     @UseGuards(JwtAuthGuard)
     @UseInterceptors(FilesInterceptor('images'))
     @Post()
@@ -33,12 +37,14 @@ export class PostsController {
         return this.postService.createPost(postDto, images);
     }
 
+    //удаление поста (и всех относящихся к нему лайков и комментов)
     @UseGuards(JwtAuthGuard)
     @Delete()
     deletePost(@Body() postDto: DeletePostDto) {
         return this.postService.deletePost(postDto.post_id);
     }
 
+    //обновление поста
     @UseGuards(JwtAuthGuard)
     @UseInterceptors(FilesInterceptor('images'))
     @Post('/update')

@@ -16,8 +16,6 @@ import {Like} from "./likes/like.model";
 import {Subscription} from "./subscriptions/subscription.model";
 import { AuthModule } from './auth/auth.module';
 import { FilesModule } from './files/files.module';
-import {ServeStaticModule} from "@nestjs/serve-static";
-import * as path from "path";
 
 @Module({
   imports: [

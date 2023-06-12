@@ -10,24 +10,31 @@ export class CommentsController {
 
     constructor(private commentService: CommentsService) {
     }
+
+    //создание комментария
     @UseGuards(JwtAuthGuard)
     @Post()
     createComment(@Body() commentDto: CreateCommentDto) {
         return this.commentService.createComment(commentDto);
     }
 
+    //удаление комментария
     @UseGuards(JwtAuthGuard)
     @Delete()
     deleteComment(@Body() commentDto: DeleteCommentDto) {
         return this.commentService.deleteComment(commentDto.comment_id)
     }
 
+
+    //получение всех комментариев к конкретному посту
     @UseGuards(JwtAuthGuard)
     @Get()
     getCommentsByPost(@Body() commentDto: CreateCommentDto) {
         return this.commentService.getCommentsByPost(commentDto.post_id);
     }
 
+
+    //обновление содержимого комментария
     @UseGuards(JwtAuthGuard)
     @Post('/update')
     updateComment (@Body() dto: UpdateCommentDto) {

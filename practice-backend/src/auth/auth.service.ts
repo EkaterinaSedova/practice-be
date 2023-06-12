@@ -27,6 +27,7 @@ export class AuthService {
         return this.generateToken(user);
     }
 
+    //генерация токена (хранит в себе id)
     private async generateToken(user: User) {
          const payload = {id: user.id};
          return {
@@ -34,6 +35,7 @@ export class AuthService {
          }
     }
 
+    //проверка данных, введённых пользователем при логине
     private async validateUser(userDto: LoginUserDto) {
         const user = await this.usersService.getUserByEmail(userDto.email)
         if(!user) throw new UnauthorizedException({message: 'Некорректный email'})

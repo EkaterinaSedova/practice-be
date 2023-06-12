@@ -18,6 +18,8 @@ export class PostsService {
                 @InjectModel(Comment) private commentRepository: typeof Comment,
     ) {}
 
+
+    //создание поста
     async createPost(dto: CreatePostDto, images: any[]) {
         let fileNames = [];
         for(let i = 0; i < images.length; i++)
@@ -28,6 +30,7 @@ export class PostsService {
         return post;
     }
 
+    //удаление поста и всех относящихся к нему лайков и комментариев
     async deletePost(id) {
         const post_id = id;
         const post = await this.postRepository.destroy({where: {id}});
@@ -37,11 +40,15 @@ export class PostsService {
         return {message: "Пост удалён."};
     }
 
+
+    //получение всех постов пользователя
     async getPostsByUser(user_id) {
         const posts = await this.postRepository.findAll({where: {user_id}})
         return posts;
     }
 
+
+    //обновление поста (ищем пост по id)
     async updatePost(dto: UpdatePostDto, files: any[]) {
         const id = dto.id;
 
@@ -62,5 +69,4 @@ export class PostsService {
         }, {where: {id}})
         return {message: "Пост обновлён"}
     }
-
 }

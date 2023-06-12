@@ -11,21 +11,26 @@ export class UsersService {
     constructor(@InjectModel(User) private userRepository: typeof User,
                 private fileService: FilesService
     ) {}
+
+    //создание пользователя
     async createUser(dto: CreateUserDto) {
         const user = await this.userRepository.create(dto);
         return user;
     }
 
+    //получение массива всех пользователей
     async getAllUsers() {
         const users = await this.userRepository.findAll();
         return users;
     }
 
+    //получение пользователя по email
     async getUserByEmail(email) {
         const user = await this.userRepository.findOne({where: {email}, include: {all: true}})
         return user;
     }
 
+    //обновление данных о пользователе (кроме email и password)
     async updateUser(dto: UpdateUserDto, image: any) {
         const id = dto.id;
         const fileName = await this.fileService.createImage(image)
@@ -45,5 +50,11 @@ export class UsersService {
                 where: {id}
             })
         return {message: "Данные о пользователе обновлены."};
+    }
+
+    //удаление пользователя
+    async deleteUser(id) {
+        const user = await this.userRepository.destroy({where: {id}})
+        return {message: `Пользователь с id ${id} удалён`}
     }
 }
