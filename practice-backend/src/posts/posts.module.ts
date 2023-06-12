@@ -9,14 +9,15 @@ import {Comment} from "../comments/comment.model";
 import {JwtService} from "@nestjs/jwt";
 import {AuthModule} from "../auth/auth.module";
 import {FilesModule} from "../files/files.module";
+import {Subscription} from "../subscriptions/subscription.model";
 
 @Module({
   providers: [PostsService, JwtService],
   controllers: [PostsController],
   imports: [
-    SequelizeModule.forFeature([User, Post, Like, Comment]),
+    SequelizeModule.forFeature([User, Post, Like, Comment, Subscription]),
       AuthModule,
-      FilesModule
+      FilesModule,
   ]
 })
 export class PostsModule {}

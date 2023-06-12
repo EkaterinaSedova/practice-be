@@ -3,10 +3,9 @@ import {InjectModel} from "@nestjs/sequelize";
 import {Post} from "./post.model";
 import {CreatePostDto} from "./dto/create-post.dto";
 import {FilesService} from "../files/files.service";
-import {DeletePostDto} from "./dto/delete-post.dto";
-import {response} from "express";
 import {Like} from "../likes/like.model";
 import {Comment} from "../comments/comment.model";
+import {Subscription} from "../subscriptions/subscription.model";
 import {UpdatePostDto} from "./dto/update-post.dto";
 
 @Injectable()
@@ -16,6 +15,7 @@ export class PostsService {
                 private fileService: FilesService,
                 @InjectModel(Like) private likeRepository: typeof Like,
                 @InjectModel(Comment) private commentRepository: typeof Comment,
+                @InjectModel(Subscription) private subscriptionRepository: typeof Subscription
     ) {}
 
 
@@ -68,5 +68,16 @@ export class PostsService {
             images: images
         }, {where: {id}})
         return {message: "Пост обновлён"}
+    }
+
+    //получение постов всех пользователей, на которых подписан конкретный пользователей
+    async getSubPosts(subscriber_id) {
+        const subscriptions = await this.subscriptionRepository.findAll({where: {subscriber_id}});
+        let posts = [];
+        for(let i = 0; i < subscriptions.length; i++) {
+            const user_id = subscriptions[i].subscriber_to_id
+            posts.push(await this.postRepository.findAll({where: {user_id}}))
+        }
+        return posts;
     }
 }

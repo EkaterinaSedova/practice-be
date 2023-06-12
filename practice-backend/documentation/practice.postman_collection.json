@@ -13,7 +13,13 @@
 					"name": "get all users",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4NjU1NzcxNywiZXhwIjoxNjg2NjQ0MTE3fQ.rVv2-GMLWBIDnsD8WRkKozoKseIFP6zIgapT6oAHcgk",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:9090/users",
 							"protocol": "http",
@@ -93,7 +99,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4NjU1MzQ5NSwiZXhwIjoxNjg2NjM5ODk1fQ.5wER3lVRSjVvlVITr526rGMx30zONt8l5glOh4_F3BY",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4NjU1NzcxNywiZXhwIjoxNjg2NjQ0MTE3fQ.rVv2-GMLWBIDnsD8WRkKozoKseIFP6zIgapT6oAHcgk",
 								"type": "text"
 							}
 						],
@@ -146,7 +152,27 @@
 					"name": "delete user",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"users"
+							]
+						}
 					},
 					"response": []
 				}
@@ -162,7 +188,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg2MTQwODIyLCJleHAiOjE2ODcyMjA4MjJ9.xTulfa2X04n4aF3SDTJQ7fBjij9krENRj0DCSlgGS_4",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4NjU1NzcxNywiZXhwIjoxNjg2NjQ0MTE3fQ.rVv2-GMLWBIDnsD8WRkKozoKseIFP6zIgapT6oAHcgk",
 								"type": "text"
 							}
 						],
@@ -171,7 +197,7 @@
 							"formdata": [
 								{
 									"key": "content",
-									"value": "завтра шашлычоооок",
+									"value": "осуждаю кибербуллинг, одобряю пепошек",
 									"type": "text"
 								},
 								{
@@ -182,7 +208,11 @@
 								{
 									"key": "images",
 									"type": "file",
-									"src": "/C:/Users/User/Desktop/скитеры/RCbdRtDkksE.jpg"
+									"src": [
+										"/C:/Users/User/Desktop/скитеры/1509471947_Frog sad meme.png",
+										"/C:/Users/User/Desktop/скитеры/clown.png",
+										"/C:/Users/User/Desktop/скитеры/peeposhy.png"
+									]
 								}
 							]
 						},
@@ -207,7 +237,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg2MTQwODIyLCJleHAiOjE2ODcyMjA4MjJ9.xTulfa2X04n4aF3SDTJQ7fBjij9krENRj0DCSlgGS_4",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4NjU1NzcxNywiZXhwIjoxNjg2NjQ0MTE3fQ.rVv2-GMLWBIDnsD8WRkKozoKseIFP6zIgapT6oAHcgk",
 								"type": "text"
 							}
 						],
@@ -241,10 +271,16 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4NjU1NzcxNywiZXhwIjoxNjg2NjQ0MTE3fQ.rVv2-GMLWBIDnsD8WRkKozoKseIFP6zIgapT6oAHcgk",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"user_id\": \"2\"\r\n}",
+							"raw": "{\r\n    \"user_id\": \"3\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -272,7 +308,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg2MTQwODIyLCJleHAiOjE2ODcyMjA4MjJ9.xTulfa2X04n4aF3SDTJQ7fBjij9krENRj0DCSlgGS_4",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4NjU1NzcxNywiZXhwIjoxNjg2NjQ0MTE3fQ.rVv2-GMLWBIDnsD8WRkKozoKseIFP6zIgapT6oAHcgk",
 								"type": "text"
 							}
 						],
@@ -286,16 +322,15 @@
 								},
 								{
 									"key": "content",
-									"value": "na prirode pri pogode",
+									"value": "наелся но не спит",
 									"type": "text"
 								},
 								{
 									"key": "images",
 									"type": "file",
 									"src": [
-										"/C:/Users/User/Desktop/скитеры/14912c3afd1bf3b78cb84b4799c75033.jpg",
-										"/C:/Users/User/Desktop/скитеры/1509471947_Frog sad meme.png",
-										"/C:/Users/User/Desktop/скитеры/clown.png"
+										"/C:/Users/User/Desktop/скитеры/2yZ60bxsEIA.jpg",
+										"/C:/Users/User/Desktop/скитеры/RCbdRtDkksE.jpg"
 									]
 								}
 							]
@@ -314,6 +349,38 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get posts from subscriptions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"13\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/posts/subscriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"posts",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -327,13 +394,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg2MTQwODIyLCJleHAiOjE2ODcyMjA4MjJ9.xTulfa2X04n4aF3SDTJQ7fBjij9krENRj0DCSlgGS_4",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4NjU1NzcxNywiZXhwIjoxNjg2NjQ0MTE3fQ.rVv2-GMLWBIDnsD8WRkKozoKseIFP6zIgapT6oAHcgk",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"user_id\": \"2\",\r\n    \"post_id\": \"34\",\r\n    \"content\": \"ITS MEEEE\"\r\n}",
+							"raw": "{\r\n    \"user_id\": \"3\",\r\n    \"post_id\": \"36\",\r\n    \"content\": \"KEFTEME\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -621,13 +688,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjg2Mjk0OTY3LCJleHAiOjE2ODYzODEzNjd9.UwWIILZCbthrp17KvunNj2lDqRcomnoklFoq4fLw6xk",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY4NjU2MDg0MywiZXhwIjoxNjg2NjQ3MjQzfQ.qggaSmOGoINH4Xhf0fh1be_pQxHClXFXlFFVbdwErTs",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"subscriber_id\": \"2\",\r\n    \"subscriber_to_id\": \"4\"\r\n}",
+							"raw": "{\r\n    \"subscriber_id\": \"13\",\r\n    \"subscriber_to_id\": \"3\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

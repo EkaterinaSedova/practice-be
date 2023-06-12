@@ -54,4 +54,11 @@ export class PostsController {
         return this.postService.updatePost(dto, images)
     }
 
+    //получение постов пользователей, на которых подписан конкретный пользователь
+    @UseGuards(JwtAuthGuard)
+    @Get('/subscriptions')
+    getSubPosts(@Body() dto: CreatePostDto) {
+        return this.postService.getSubPosts(dto.user_id);
+    }
+
 }
