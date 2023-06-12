@@ -19,6 +19,7 @@ export class UsersController {
     }
 
     //получение массива всех пользователей
+    @UseGuards(JwtAuthGuard)
     @Get()
     getAll() {
         return this.usersService.getAllUsers();

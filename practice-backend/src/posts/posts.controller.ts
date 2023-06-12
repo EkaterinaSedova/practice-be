@@ -23,6 +23,7 @@ export class PostsController {
 
 
     //получение всех постов пользователя
+    @UseGuards(JwtAuthGuard)
     @Get()
     getPostsByUser(@Body() postDto: CreatePostDto) {
         return this.postService.getPostsByUser(postDto.user_id);
