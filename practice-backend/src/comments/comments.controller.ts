@@ -5,6 +5,7 @@ import {JwtAuthGuard} from "../auth/jwt-auth.guard";
 import {DeleteCommentDto} from "./dto/delete-comment.dto";
 import {UpdateCommentDto} from "./dto/update-comment.dto";
 
+@UseGuards(JwtAuthGuard)
 @Controller('/comments')
 export class CommentsController {
 
@@ -12,14 +13,12 @@ export class CommentsController {
     }
 
     //создание комментария
-    @UseGuards(JwtAuthGuard)
     @Post()
     createComment(@Body() commentDto: CreateCommentDto) {
         return this.commentService.createComment(commentDto);
     }
 
     //удаление комментария
-    @UseGuards(JwtAuthGuard)
     @Delete()
     deleteComment(@Body() commentDto: DeleteCommentDto) {
         return this.commentService.deleteComment(commentDto.comment_id)
@@ -27,7 +26,6 @@ export class CommentsController {
 
 
     //получение всех комментариев к конкретному посту
-    @UseGuards(JwtAuthGuard)
     @Get()
     getCommentsByPost(@Body() commentDto: CreateCommentDto) {
         return this.commentService.getCommentsByPost(commentDto.post_id);
@@ -35,7 +33,6 @@ export class CommentsController {
 
 
     //обновление содержимого комментария
-    @UseGuards(JwtAuthGuard)
     @Post('/update')
     updateComment (@Body() dto: UpdateCommentDto) {
         return this.commentService.updateComment(dto);

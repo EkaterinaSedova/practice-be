@@ -16,6 +16,7 @@ import {FilesInterceptor} from "@nestjs/platform-express";
 import {DeletePostDto} from "./dto/delete-post.dto";
 import {UpdatePostDto} from "./dto/update-post.dto";
 
+@UseGuards(JwtAuthGuard)
 @Controller('/posts')
 export class PostsController {
 
@@ -23,14 +24,12 @@ export class PostsController {
 
 
     //получение всех постов пользователя
-    @UseGuards(JwtAuthGuard)
     @Get()
     getPostsByUser(@Body() postDto: CreatePostDto) {
         return this.postService.getPostsByUser(postDto.user_id);
     }
 
     //создание поста
-    @UseGuards(JwtAuthGuard)
     @UseInterceptors(FilesInterceptor('images'))
     @Post()
     createPost(@Body() postDto: CreatePostDto,
@@ -39,14 +38,12 @@ export class PostsController {
     }
 
     //удаление поста (и всех относящихся к нему лайков и комментов)
-    @UseGuards(JwtAuthGuard)
     @Delete()
     deletePost(@Body() postDto: DeletePostDto) {
         return this.postService.deletePost(postDto.post_id);
     }
 
     //обновление поста
-    @UseGuards(JwtAuthGuard)
     @UseInterceptors(FilesInterceptor('images'))
     @Post('/update')
     updatePost(@Body() dto: UpdatePostDto,
@@ -55,7 +52,6 @@ export class PostsController {
     }
 
     //получение постов пользователей, на которых подписан конкретный пользователь
-    @UseGuards(JwtAuthGuard)
     @Get('/subscriptions')
     getSubPosts(@Body() dto: CreatePostDto) {
         return this.postService.getSubPosts(dto.user_id);
