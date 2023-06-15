@@ -57,4 +57,9 @@ export class UsersService {
         const user = await this.userRepository.destroy({where: {id}})
         return {message: `Пользователь с id ${id} удалён`}
     }
+
+    async getUserById(id) {
+        const user = await this.userRepository.findOne({where: {id}})
+        return user;
+    }
 }

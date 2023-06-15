@@ -2,7 +2,7 @@ import {
     Body,
     Controller,
     Delete,
-    Get,
+    Get, Param,
     Post,
     UploadedFile,
     UploadedFiles,
@@ -24,9 +24,9 @@ export class PostsController {
 
 
     //получение всех постов пользователя
-    @Get('/user')
-    getPostsByUser(@Body() postDto: CreatePostDto) {
-        return this.postService.getPostsByUser(postDto.user_id);
+    @Get('/user/:id')
+    getPostsByUser(@Param() params: any) {
+        return this.postService.getPostsByUser(params.id);
     }
 
     //создание поста

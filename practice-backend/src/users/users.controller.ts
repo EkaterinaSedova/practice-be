@@ -1,4 +1,15 @@
-import {Body, Controller, Delete, Get, Post, UploadedFile, UseGuards, UseInterceptors, UsePipes} from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Delete,
+    Get,
+    Param,
+    Post,
+    UploadedFile,
+    UseGuards,
+    UseInterceptors,
+    UsePipes
+} from '@nestjs/common';
 import {CreateUserDto} from "./dto/create-user.dto";
 import {UsersService} from "./users.service";
 import {UpdateUserDto} from "./dto/update-user.dto";
@@ -40,4 +51,10 @@ export class UsersController {
     deleteUser(@Body() dto: UpdateUserDto) {
         return this.usersService.deleteUser(dto.id);
     }
+
+    @Get('/:id')
+    getUserById(@Param() params: any) {
+        return this.usersService.getUserById(params.id);
+    }
+
 }
