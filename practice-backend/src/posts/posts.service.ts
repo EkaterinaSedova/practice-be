@@ -80,4 +80,9 @@ export class PostsService {
         }
         return posts;
     }
+
+    async getPosts() {
+        const posts = await this.postRepository.findAll();
+        return posts;
+    }
 }

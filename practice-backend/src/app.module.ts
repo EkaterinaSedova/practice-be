@@ -16,9 +16,14 @@ import {Like} from "./likes/like.model";
 import {Subscription} from "./subscriptions/subscription.model";
 import { AuthModule } from './auth/auth.module';
 import { FilesModule } from './files/files.module';
+import {ServeStaticModule} from "@nestjs/serve-static";
+import { join } from 'path';
 
 @Module({
   imports: [
+      ServeStaticModule.forRoot({
+          rootPath: join('./resources'),
+      }),
       ConfigModule.forRoot({
         envFilePath: '.env'
       }),

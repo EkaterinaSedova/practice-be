@@ -24,7 +24,7 @@ export class PostsController {
 
 
     //получение всех постов пользователя
-    @Get()
+    @Get('/user')
     getPostsByUser(@Body() postDto: CreatePostDto) {
         return this.postService.getPostsByUser(postDto.user_id);
     }
@@ -55,6 +55,11 @@ export class PostsController {
     @Get('/subscriptions')
     getSubPosts(@Body() dto: CreatePostDto) {
         return this.postService.getSubPosts(dto.user_id);
+    }
+
+    @Get()
+    getPosts() {
+        return this.postService.getPosts();
     }
 
 }
