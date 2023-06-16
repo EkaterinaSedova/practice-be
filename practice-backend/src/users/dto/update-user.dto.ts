@@ -11,5 +11,5 @@ export class UpdateUserDto {
 
     readonly sex: string;
 
-    readonly profile_img: string;
+    readonly profile_img: any;
 }

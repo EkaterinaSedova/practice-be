@@ -9,6 +9,8 @@ interface UserCreationAttrs {
     password: string;
     firstname: string;
     lastname: string;
+
+    profile_img: string;
 }
 
 @Table({tableName: 'users', updatedAt: false })

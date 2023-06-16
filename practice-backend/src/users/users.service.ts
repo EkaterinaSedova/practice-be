@@ -14,7 +14,8 @@ export class UsersService {
 
     //создание пользователя
     async createUser(dto: CreateUserDto) {
-        const user = await this.userRepository.create(dto);
+        const noAvatar = 'no_avatar_image.jpg';
+        const user = await this.userRepository.create({...dto, profile_img: noAvatar});
         return user;
     }
 
@@ -33,7 +34,8 @@ export class UsersService {
     //обновление данных о пользователе (кроме email и password)
     async updateUser(dto: UpdateUserDto, image: any) {
         const id = dto.id;
-        const fileName = await this.fileService.createImage(image)
+        let fileName;
+        if (image) fileName = await this.fileService.createImage(image)
         const candidate = await this.userRepository.findOne({where: {id}})
         if(!candidate) throw new HttpException("Пользователь не найден", HttpStatus.BAD_REQUEST)
         const firstName = dto.firstname || candidate.firstname;

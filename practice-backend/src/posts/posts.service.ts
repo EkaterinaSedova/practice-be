@@ -43,7 +43,9 @@ export class PostsService {
 
     //получение всех постов пользователя
     async getPostsByUser(user_id) {
-        const posts = await this.postRepository.findAll({where: {user_id}})
+        const posts = await this.postRepository.findAll({where: {user_id}, order: [
+                ['id', 'DESC']
+            ]})
         return posts;
     }
 
@@ -76,13 +78,17 @@ export class PostsService {
         let posts = [];
         for(let i = 0; i < subscriptions.length; i++) {
             const user_id = subscriptions[i].subscriber_to_id
-            posts.push(await this.postRepository.findAll({where: {user_id}}))
+            posts.push(await this.postRepository.findAll({where: {user_id}, order: [
+                            ['id', 'DESC']
+                        ]}))
         }
         return posts;
     }
 
     async getPosts() {
-        const posts = await this.postRepository.findAll();
+        const posts = await this.postRepository.findAll({order: [
+            ['id', 'DESC']
+            ]});
         return posts;
     }
 }

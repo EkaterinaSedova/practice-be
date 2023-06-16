@@ -12,4 +12,6 @@ export class CreateUserDto {
 
     @IsString({message: "Фамилия должна быть строкой"})
     readonly lastname: string;
+
+    readonly profile_img: string;
 }

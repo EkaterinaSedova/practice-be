@@ -8,8 +8,8 @@ import {ValidationException} from "../exceptions/validation.exception";
 export class ValidationPipe implements PipeTransform<any> {
     async transform(value: any, metadata: ArgumentMetadata): Promise<any> {
         const obj = plainToClass(metadata.metatype, value);
+        console.log('hi from pipe', obj)
         const errors = await validate(obj);
-
         if(errors.length) {
             let message = errors.map(error => {
                 return `${error.property}: ${Object.values(error.constraints).join(', ')}`
@@ -17,6 +17,9 @@ export class ValidationPipe implements PipeTransform<any> {
             throw new ValidationException(message)
         }
         return value;
+
+
+
     }
 
 }
