@@ -45,7 +45,7 @@ export class PostsService {
     async getPostsByUser(user_id) {
         const posts = await this.postRepository.findAll({where: {user_id}, order: [
                 ['id', 'DESC']
-            ]})
+            ], include: {all: true}})
         return posts;
     }
 
@@ -88,7 +88,7 @@ export class PostsService {
     async getPosts() {
         const posts = await this.postRepository.findAll({order: [
             ['id', 'DESC']
-            ]});
+            ], include: {all: true}});
         return posts;
     }
 }
