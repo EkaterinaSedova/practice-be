@@ -15,8 +15,11 @@ export class SubscriptionsService {
     }
 
     //отмена (удаление) подписки
-    async deleteSubscription(id) {
-        const subscription = await this.suscriptionRepository.destroy({where: {id}})
+    async deleteSubscription(subscriber_id, subscriber_to_id) {
+        const subscription = await this.suscriptionRepository.destroy({where: {
+                subscriber_id: subscriber_id,
+                subscriber_to_id: subscriber_to_id
+        }})
         return {message: "Подписка отменена"}
     }
 

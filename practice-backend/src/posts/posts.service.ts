@@ -75,13 +75,14 @@ export class PostsService {
     //получение постов всех пользователей, на которых подписан конкретный пользователей
     async getSubPosts(subscriber_id) {
         const subscriptions = await this.subscriptionRepository.findAll({where: {subscriber_id}});
-        let posts = [];
+        let subs = [];
         for(let i = 0; i < subscriptions.length; i++) {
             const user_id = subscriptions[i].subscriber_to_id
-            posts.push(await this.postRepository.findAll({where: {user_id}, order: [
-                            ['id', 'DESC']
-                        ]}))
+            subs.push(user_id)
         }
+        const posts = await this.postRepository.findAll({where: {user_id: subs}, order: [
+                ['id', 'DESC']
+            ], include: {all: true}})
         return posts;
     }
 

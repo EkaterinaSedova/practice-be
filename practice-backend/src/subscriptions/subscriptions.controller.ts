@@ -18,8 +18,8 @@ export class SubscriptionsController {
 
     //удаление подписки (по id)
     @Delete()
-    deleteSubscription(@Body() dto: DeleteSubscriptionDto) {
-        return this.subscriptionsService.deleteSubscription(dto.id);
+    deleteSubscription(@Body() dto: CreateSubscriptionDto) {
+        return this.subscriptionsService.deleteSubscription(dto.subscriber_id, dto.subscriber_to_id);
     }
 
     //получение всех подписок пользователя по id пользователя

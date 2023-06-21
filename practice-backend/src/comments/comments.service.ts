@@ -33,7 +33,8 @@ export class CommentsService {
 
     //получение всех комментариев к конкретному посту
     async getCommentsByPost(post_id) {
-        const comments = await this.commentRepository.findAll({where: {post_id}})
+        const comments = await this.commentRepository.findAll({where: {post_id}, order: [
+                ['id', 'ASC']], include: {all: true}})
         return comments;
     }
 }

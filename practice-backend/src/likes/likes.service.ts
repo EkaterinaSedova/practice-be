@@ -30,7 +30,7 @@ export class LikesService {
 
     //получение всех пользователей, которые лайкнули конкретный пост
     async getLikesByPost(post_id) {
-        const likes = await this.likeRepository.findAll({where: {post_id}});
+        const likes = await this.likeRepository.findAndCountAll({where: {post_id}});
         return likes;
     }
 

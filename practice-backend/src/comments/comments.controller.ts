@@ -1,4 +1,4 @@
-import {Body, Controller, Delete, Get, Post, UseGuards} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, UseGuards} from '@nestjs/common';
 import {CreateCommentDto} from "./dto/create-comment.dto";
 import {CommentsService} from "./comments.service";
 import {JwtAuthGuard} from "../auth/jwt-auth.guard";
@@ -26,9 +26,9 @@ export class CommentsController {
 
 
     //получение всех комментариев к конкретному посту
-    @Get()
-    getCommentsByPost(@Body() commentDto: CreateCommentDto) {
-        return this.commentService.getCommentsByPost(commentDto.post_id);
+    @Get('/:id')
+    getCommentsByPost(@Param() params: any) {
+        return this.commentService.getCommentsByPost(params.id);
     }
 
 

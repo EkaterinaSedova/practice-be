@@ -52,9 +52,9 @@ export class PostsController {
     }
 
     //получение постов пользователей, на которых подписан конкретный пользователь
-    @Get('/subscriptions')
-    getSubPosts(@Body() dto: CreatePostDto) {
-        return this.postService.getSubPosts(dto.user_id);
+    @Get('/subscriptions/:id')
+    getSubPosts(@Param() params: any) {
+        return this.postService.getSubPosts(params.id);
     }
 
     @Get()
