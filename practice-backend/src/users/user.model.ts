@@ -10,6 +10,7 @@ interface UserCreationAttrs {
     firstname: string;
     lastname: string;
 
+    sex: string;
     profile_img: string;
 }
 

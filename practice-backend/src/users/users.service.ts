@@ -15,7 +15,7 @@ export class UsersService {
     //создание пользователя
     async createUser(dto: CreateUserDto) {
         const noAvatar = 'no_avatar_image.jpg';
-        const user = await this.userRepository.create({...dto, profile_img: noAvatar});
+        const user = await this.userRepository.create({...dto, sex: 'unknown', profile_img: noAvatar});
         return user;
     }
 
